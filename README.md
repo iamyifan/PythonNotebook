@@ -56,7 +56,7 @@
    print(fn(a, c))
    ```
 
-   ```
+   ```python
    【A】([1, 2, 2], 2)
    【B】([1, 2, 2], 3)
    【C】([1, 2], 2)
@@ -90,7 +90,7 @@
        f(2)
    ```
 
-   ```
+   ```python
    【A】4,4,
    【B】2,2,
    【C】0,1,
@@ -147,7 +147,7 @@
    print(sieve(10000000000))
    ```
 
-   ```
+   ```python
    【A】455052510
    【B】455052511
    【C】455052512
@@ -173,7 +173,7 @@
    print(one + two)
    ```
 
-   ```
+   ```python
    【A】None
    【B】报错
    【C】(1, 2, 3, 'a', 'b')
@@ -206,7 +206,7 @@
 
    运行 `print_module.py` 程序，结果是：
 
-   ```
+   ```python
    【A】Hello World!
    		 __name__ value: print_func
    		 Done!
@@ -244,7 +244,7 @@
        print('fun')
    ```
 
-   ```
+   ```python
    【A】outer
    【B】inner
    【C】fun
@@ -269,7 +269,7 @@
     print(age)
     ```
 
-    ```
+    ```python
     【A】None 18
     【B】None None
     【C】编译错误
@@ -290,11 +290,11 @@
     ```
 
     ```python
-    <type 'int'>
-    <type 'number'>
-    <type 'float'>
-    <type 'double'>
-    <type 'tuple'>
+    【A】<type 'int'>
+    【B】<type 'number'>
+    【C】<type 'float'>
+    【D】<type 'double'>
+    【E】<type 'tuple'>
     ```
 
     正确答案：A
