@@ -165,4 +165,140 @@
    Tip：寻找某个数 x 的最大公因数时，寻找范围可缩小至 [2, sqrt(x) + 1]。
    ```
 
+7. 在 Python3 中，以下程序结果为：
+
+   ```python
+   one = (1, 2, 3)
+   two = ('a', 'b')
+   print(one + two)
+   ```
+
+   ```
+   【A】None
+   【B】报错
+   【C】(1, 2, 3, 'a', 'b')
+   【D】[1, 2, 3, 'a', 'b']
+   ```
+
+   正确答案：C
+
+   ```
+   元组中，+ 运算符表示连接两个元组并生成一个新的元组。
+   ```
+
+8. 已知 `print_func.py` 的代码如下：
+
+   ```python
+   print('Hello World!')
+   print('__name__value: ', __name__)
+   def main():
+       print('This message is from main function')
+   if __name__ == '__main__':
+       main()
+   ```
+
+   `print_module.py` 的代码如下：
+
+   ```python
+   import print_func
+   print("Done!")
+   ```
+
+   运行 `print_module.py` 程序，结果是：
+
+   ```
+   【A】Hello World!
+   		 __name__ value: print_func
+   		 Done!
+   【B】Hello World!
+   		 __name__ value: print_module
+   		 Done!
+   【C】Hello World!
+   	 	 __name__ value: __main__
+   		 Done!
+   【D】Hello World!
+   		 __name__ value:
+   		 Done!
+   ```
+
+   正确答案：A
+
+   ```
+   __name__ 是一个系统变量，用于表示模块的名字。
+   当直接运行该模块时，即作为主线运行程序时，__name__ 被赋值为 __main__；
+   当该模块被其他模块导入时，__name__ 被赋值为自己的文件名，例如 print_func。
+   ```
+
+9. 执行以下程序，输出结果为：
+
+   ```python
+   def outer(fn):
+       print('outer')
+       def inner():
+           print('inner')
+           return fn
+       return inner
    
+   @outer
+   def fun():
+       print('fun')
+   ```
+
+   ```
+   【A】outer
+   【B】inner
+   【C】fun
+   【D】因为没有调用任何函数，所以没有输出结果
+   ```
+
+   正确答案：A
+
+   ```
+   函数 fun 之上的 @outer 为装饰器，等同于将函数 fun 作为参数传入了函数 outer，即 outer(fun)。
+   函数 outer 返回值为函数 inner 的内存地址，并非调用了该函数（返回值为 inner()）。
+   此外，在装饰器对函数完成装饰后，装饰器会立即执行。
+   ```
+
+10. 以下程序输出为：
+
+    ```python
+    info = {'name':'班长', 'id':100, 'sex':'f', 'address':'北京'}
+    age = info.get('age')
+    print(age)
+    age = info.get('age',18)
+    print(age)
+    ```
+
+    ```
+    【A】None 18
+    【B】None None
+    【C】编译错误
+    【D】运行错误
+    ```
+
+    正确答案：A
+
+    ```
+    dict.get(key, default=None)
+    当字典中没有匹配的 key 时，返回值默认为空。
+    ```
+
+11. 在 Python 2 中，以下程序输出为：
+
+    ```python
+    print type(1/2)
+    ```
+
+    ```python
+    <type 'int'>
+    <type 'number'>
+    <type 'float'>
+    <type 'double'>
+    <type 'tuple'>
+    ```
+
+    正确答案：A
+
+    ```
+    在 Python 2 中，除法运算默认向下取整，因此 1/2 = 0 的计算结果为整形。
+    ```
