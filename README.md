@@ -208,17 +208,17 @@
 
    ```python
    【A】Hello World!
-   		 __name__ value: print_func
-   		 Done!
+   	__name__ value: print_func
+   	Done!
    【B】Hello World!
-   		 __name__ value: print_module
-   		 Done!
+   	__name__ value: print_module
+   	Done!
    【C】Hello World!
-   	 	 __name__ value: __main__
-   		 Done!
+   	 __name__ value: __main__
+   	Done!
    【D】Hello World!
-   		 __name__ value:
-   		 Done!
+   	__name__ value:
+   	Done!
    ```
 
    正确答案：A
