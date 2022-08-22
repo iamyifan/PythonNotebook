@@ -207,18 +207,22 @@
    运行 `print_module.py` 程序，结果是：
 
    ```python
-   【A】Hello World!
-   	__name__ value: print_func
-   	Done!
-   【B】Hello World!
-   	__name__ value: print_module
-   	Done!
-   【C】Hello World!
-   	 __name__ value: __main__
-   	Done!
-   【D】Hello World!
-   	__name__ value:
-   	Done!
+   【A】
+   Hello World!
+   __name__ value: print_func
+   Done!
+   【B】
+   Hello World!
+   __name__ value: print_module
+   Done!
+   【C】
+   Hello World!
+    __name__ value: __main__
+   Done!
+   【D】
+   Hello World!
+   __name__ value:
+   Done!
    ```
 
    正确答案：A
@@ -450,3 +454,182 @@
     在 += 运算时，[3, 4] 在原地址的起初上先被修改为 [3, 4, [5, 6]，然后再赋值给 tup[2]。对元组赋值操作引发了错误，但此时元组内的元素已经被修改。
     list.extend() 通用在原地修改列表，但没有重新赋值的行为，故不会引发元组的异常。
     ```
+
+18. 在 Python3 中，以下字符串操作结果为：
+
+    ```python
+    strs = 'I like python'
+    one = strs.find('a')
+    print(one)
+    two = strs.index('a')
+    print(two)
+    ```
+
+    ```python
+    【A】None, 报错
+    【C】报错，报错
+    【D】-1， None
+    【E】-1， 报错
+    ```
+
+    正确答案：D
+
+    ```python
+    S.find(sub[, start[, end]]) -> int
+    返回 S[start:end] 中出现 sub 的最小下标。S 中没有 sub 时返回 -1。
+    
+    S.index(sub[, start[, end]]) -> int
+    返回 S[start:end] 中出现 sub 的最小下标。S 中没有 sub 时返回 ValueError
+    ```
+
+19. 在Python3中，下列程序结果为：
+
+    ```python
+    dict1 = {'one': 1, 'two': 2, 'three': 3}
+    dict2 = {'one': 4, 'tmp': 5}
+    dict1.update(dict2)
+    print(dict1)
+    ```
+    ```python
+    【A】{'one': 1, 'two': 2, 'three': 3, 'tmp': 5}
+	【B】{'one': 4, 'two': 2, 'three': 3}
+	【C】{'one': 1, 'two': 2, 'three': 3}
+	【D】{'one': 4, 'two': 2, 'three': 3, 'tmp': 5}
+    ```
+    
+    正确答案：D
+    
+    ```python
+    D.update([E, ]**F) -> None
+    根据 dict/iterable 类型的 E 和 F 更新 D。 
+    
+    当 E 拥有 .keys() 方法时：
+    for k in E:
+    	D[k] = E[k]
+    
+    当 E 缺少 .keys() 方法时：
+    for k, v in D:
+    	D[k] = v
+    
+    根据 K 对 D 进行更新：
+    for k in F:
+    	D[k] = F[k]
+    ```
+
+20. 在 Python3 中执行下列选项的程序，不会抛出异常的：
+
+    ```python
+    【A】
+    b = 1
+    def fn():
+        nonlocal b
+        b = b + 1
+        print(b)
+    fn()
+    【B】
+    tup = (('onion', 'apple'), ('tomato', 'pear'))
+    for _, fruit in tup:
+    	print(fruit)
+    【C】
+    a = [b for b in range(10) if b % 2 == 0]
+    print(b)
+    【D】
+    lis = [1, 2, 'a', [1, 2]]
+    set(lis)
+    ```
+
+21. 根据以下程序，下列选项中，说法正确的是：
+
+    ```python
+    class Vector:
+    	__slots__='x', 'y'
+        def __init__(self):
+            pass
+        
+    class Vector3d(Vector):
+        __slots__='x', 'z'
+        def __init__(self):
+            pass
+    
+    vector = Vector()
+    vector3d = Vector3d()
+    ```
+
+    ```python
+    【A】若子类没有定义 __slots__ 属性，则子类可以继承父类的 __slots__ 属性
+    【B】Vector 类的实例对象 vector 会自动获得实例属性 x 和 y
+    【C】Vector3d 类的实例对象 vector3d 最多只能允许属性 x 和 z
+    【D】Vector3d 类的实例对象 vector3d 最多只能允许属性 x、y 和 z
+    ```
+
+    正确答案：D
+
+    ```
+    __slots__ 属性用于限制实例对象的属性，实例对象的属性被限制在 __slost__ 的范围内。
+    如果子类没有定义 __slots__ 属性，则不会继承父类的 __slot__ 属性；
+    如果子类定义了 __slots__ 属性，则子类对象允许的属性包括了子类的 __slots 和父类的 __slot__。
+    
+    参考：https://www.nowcoder.com/test/question/done?tid=60012666&qid=2225430#summary
+    ```
+
+22. 执行下列程序，输出结果为：
+
+    ```python
+    def fun(a, *, b):
+        print(b)
+        
+    fun(1, 2, 3, 4)
+    ```
+
+    ```python
+    【A】[2,3,4]
+    【B】[3,4] 
+    【C】报错 
+    【D】4
+    ```
+
+    正确答案：C
+
+    ```python
+    当 * 单独作为参数时，表示它后面的参数必须使用关键字参数进行匹配。
+    函数的参数顺序：位置参数 -> 默认参数 -> 位置不定长参数 -> 关键字不定长参数
+    
+    例如：
+    def foo(a, b, c=1, d=2, *e, **f):
+    	for x in [a, b, c, d, e, f]:
+    		print(x)
+    
+    foo(1, 2, 3, 4, 5, 6, m=7, n=8)
+    
+    此时的参数赋值情况为：
+    a = 1，b = 2，c = 3，d = 4， e = (5, 6)，f = {'m': 7, 'n': 8}
+    ```
+
+23. 在 Python3 中，有关字符串的运算结果为：
+
+    ```python
+    strs = 'I like python and java'
+    one = strs.find('n')
+    print(one)
+    two = strs.rfind('n')
+    print(two)
+    ```
+
+    ```python
+    【A】12, 12
+    【B】15, 15
+    【C】12, 15
+    【D】None, None
+    ```
+
+    正确答案：C
+
+    ```python
+    S.find(sub[, start[, end]]) -> int
+    find 方法用于返回 S 中出现 sub 的最小下标。当 S 中没有 sub 时，返回 -1。
+    
+    S.rfind(sub[, start[, end]]) -> int
+    rfind 方法用于返回 S 中出现 sub 的最大下标。当 S 中没有 sub 时，返回 -1。
+    ```
+
+    
