@@ -130,7 +130,7 @@
    参考：https://www.nowcoder.com/test/question/done?tid=59682202&qid=345275#summary
    ```
 
-6. 假设可以不考虑计算机运行资源（如内存）的限制，以下 python3 代码的预期运行结果是：
+6. 假设可以不考虑计算机运行资源（如内存）的限制，以下 Python3 代码的预期运行结果是：
 
    ```python
    import math
@@ -399,7 +399,7 @@
     例如：0 or False or ''，返回 ''；0 or False 返回 False。
     ```
 
-16. 对于下面的 Python3 函数，如果输入的参数 n 非常大，函数的返回值会趋近于以下哪一个值（选项中的值用 Python 表达式来表示）：
+16. 对于下面的 Python3 函数，如果输入的参数 `n` 非常大，函数的返回值会趋近于以下哪一个值（选项中的值用 Python 表达式来表示）：
 
     ```python
     import random 
@@ -681,6 +681,46 @@
     在 Python 中，默认参数只在函数定义时被复制一次，即默认参数被保存在固定的内存地址中，而不会在每次调用时创建新的引用。
     如果默认参数的类型为不可变对象，则之后的调用会创建新的引用。
     如果默认参数的类型为可变对象，则之后的函数调用都会改变该可变对象。
+    ```
+
+26. 当使用 `import` 导入模块时，按 Python 查找模块的不同顺序可划分为以下几种：
+
+    ①环境变量中的 `PYTHONPATH`
+
+    ②内建模块
+
+    ③`Python` 安装路径
+
+    ④当前路径，即执行 `Python` 脚本文件所在的路径
+
+    其中查找顺序正确的一组是：
+
+    ```
+    【A】① ④ ② ③
+    【B】② ① ④ ③
+    【C】② ④ ① ③
+    【D】① ② ③ ④
+    ```
+
+    正确答案：C
+
+    ```python
+    1）导入内建模块。例如：abs(), print(), max(), min() 等函数。
+    2）按照 sys.path 中的顺序进行寻找。sys.path 返回一个列表，包括了以下五个部分：
+    	2.1）程序的根目录，即当前 Python 文件的目录
+    	2.2）环境变量 PYHTONPATH
+    	2.3）标准库（例如：os，sys和random）的目录
+    	2.4）.pth 文件中的内容（.pth 文件用于存储 Python 的查找路径）
+    	2.5）第三方扩展的 site-package/dist-package 目录
+    
+    例如，以下为 sys.path 的返回内容：
+    ['', '/usr/lib/python310.zip', '/usr/lib/python3.10', '/usr/lib/python3.10/lib-dynload', '/usr/local/lib/python3.10/dist-packages', '/usr/lib/python3/dist-packages']
+    其中，
+    ''：程序的根目录
+    '/usr/lib/python310.zip', '/usr/lib/python3.10', '/usr/lib/python3.10/lib-dynload'：标准库的目录
+    '/usr/local/lib/python3.10/dist-packages', '/usr/lib/python3/dist-packages'：第三方扩展的 dist-package 目录
+    
+    参考：https://blog.csdn.net/qq_27825451/article/details/100552739
     ```
 
     
