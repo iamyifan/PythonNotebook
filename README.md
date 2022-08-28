@@ -723,4 +723,58 @@
     参考：https://blog.csdn.net/qq_27825451/article/details/100552739
     ```
 
+
+27. 当一个嵌套函数在其外部区域引用了一个值时，该嵌套函数就是一个闭包，以下代码输出值为：
+
+    ```python
+    def adder(x):
+        def wrapper(y):
+            return x + y
+        return wrapper
+    adder5 = adder(5)
+    print(adder5(adder5(6)))
+    ```
+
+    ```python
+    【A】10
+    【B】12
+    【C】14
+    【D】16
+    ```
+    正确答案：D
+    
+    ```
+    Python 函数闭包（Closure Function）：
+    	1）函数嵌套，即在函数内部（外函数）定义了一个函数（内函数）
+    	2）内函数引用了外函数的变量
+    	3）内函数是外函数的返回值
+    
+    函数闭包在调用后，内部的值会被保存。本例中，在执行函数 adder(5) 后，函数 wrapper 中 变量 x 的值固定为 5。两次调用函数 adder5，等效于计算 6 + 5 + 5。
+    
+    何时使用函数闭包：
+    Closures can avoid the use of global values and provides some form of data hiding. It can also provide an object oriented solution to the problem.
+    When there are few methods (one method in most cases) to be implemented in a class, closures can provide an alternate and more elegant solution. But when the number of attributes and methods get larger, it's better to implement a class.
+    
+    查看函数闭包内保存的值：
+    All function objects have a __closure__ attribute that returns a tuple of cell objects if it is a closure function. The cell object has the attribute cell_contents which stores the closed value.
+    
+    参考：https://www.programiz.com/python-programming/closure
+    ```
+
+28. 下列关于 Python `socket` 操作叙述正确的是：
+
+    ```
+    【A】使用 recvfrom() 接收 TCP 数据
+    【B】使用 getsockname() 获取连接套接字的远程地址
+    【C】使用 connect() 初始化 TCP 服务器连接
+    【D】服务端使用 listen() 开始 TCP 监听
+    ```
+
+    正确答案：C、D
+
+    ```python
+    sk.recvfrom(bufsize[.flag]) 返回值是 (data, address)。其中 data 是包含接收数据的字符串，address 是发送数据的套接字地址；
+    sk.getsockname() 返回套接字自己的地址。通常是一个元组 (ipaddr, port)。
+    ```
+
     
