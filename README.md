@@ -777,4 +777,54 @@
     sk.getsockname() 返回套接字自己的地址。通常是一个元组 (ipaddr, port)。
     ```
 
+
+29. 下面关于 `return` 说法正确的是：
+
+    ```python
+    【A】Python 函数中必须有 return
+    【B】return 可以返回多个值
+    【C】return 没有返回值时，函数自动返回 Null
+    【D】执行到 return 时，程序将停止函数内 return 后面的语句
+    ```
+
+    正确答案：D
+
+    ```
+    在 Python 中，通过逗号分割的值被视为元组。元组的括号为可选项，只有在语法需要时才必要。
+    通过函数返回多个值时，可以采用逗号分割的形式返回一个元组。
+    
+    参考：https://note.nkmk.me/en/python-function-return-multiple-values/
+    ```
+
+30. 根据以下程序，下列选项中，说法正确的是：
+
+    ```python
+    class Foo():
+        def __init__(self):
+            pass
+        def __getitem__(self,pos):
+            return range(0, 30, 10)[pos]
+    
+    foo = Foo()
+    ```
+
+    ```python
+    【A】foo 对象表现得像个序列
+    【B】可以使用 len(foo) 来查看对象 foo 的元素个数
+    【C】可以使用 for i in foo: print(i) 来遍历 foo 的元素
+    【D】不能使用 foo[0] 来访问对象 foo 的第一个元素
+    ```
+
+    正确答案：C
+
+    ```
+    【A】序列必须满足两个方法：__len__ 和 __getitem__。
+    【B】类 Foo 没有定义方法 __len__，因此无法查看元素数量。
+    【C】对象迭代需要调用方法 __iter__。如果没有定义该方法，Python 则调用方法 __getitem__，让迭代和运算符 in 可用。
+    【D】通过索引访问元素对象时，调用方法 __getitem__。
+    
+    参考：https://www.nowcoder.com/test/question/done?tid=60470599&qid=2225432#summary
+    https://www.programiz.com/python-programming/iterator
+    ```
+
     
