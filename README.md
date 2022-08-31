@@ -827,4 +827,74 @@
     https://www.programiz.com/python-programming/iterator
     ```
 
+
+31. 在 Python3 中，关于字符串的运算结果为：
+
+    ```python
+    strs = 'abcd'
+    print(strs.center(10, '*'))
+    ```
+
+    ```python
+    【A】'abcd'
+    【B】'*****abcd*****'
+    【C】'***abcd***'
+    【D】'   abcd   '
+    ```
+
+    正确答案：C
+
+    ```python
+    str.center(self, width, fillchar=' '') 用于返回一个长度为 width 的居中字符串，默认使用 ' ' 进行填充。
+    ```
+
+32. 执行以下程序，输出结果为：
+    ```python
+    class Base(object):
+        count = 0
+        def __init__(self):
+            pass
+        
+    b1 = Base()
+    b2 = Base()
+    b1.count = b1.count + 1
     
+    print(b1.count,end=" ")
+    print(Base.count,end=" ")
+    print(b2.count)
+    ```
+
+    ```python
+    【A】1 1 1
+    【B】1 0 0
+    【C】1 0 1
+    【D】抛出异常
+    ```
+
+    正确答案：B
+
+    ```
+    属性 count 在类 Base 中属于类属性，可以为同名的实例属性提供默认值。实例属性 b1.count 和 b2.count 在初始化后被赋值为类属性 count 的值，即为零。对实例属性的操作不会影响到类属性的值，且不同实例的实例属性之间互不影响。
+    ```
+
+33. 下列程序打印结果为：
+
+    ```python
+    import re 
+    str1 = "Python's features" 
+    str2 = re.match( r'(.*)on(.*?) .*', str1, re.M|re.I)
+    print str2.group(1)
+    ```
+
+    ```python
+    【A】Python
+    【B】Pyth
+    【C】thon’s
+    【D】Python‘s features
+    ```
+
+    正确答案：B
+
+    ```
+    参考：https://www.nowcoder.com/test/question/done?tid=60500036&qid=304630#summary
+    ```
