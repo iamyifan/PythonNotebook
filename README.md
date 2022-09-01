@@ -898,3 +898,26 @@
     ```
     参考：https://www.nowcoder.com/test/question/done?tid=60500036&qid=304630#summary
     ```
+
+34. 在 Python3 中，程序运行结果为：
+
+    ```python
+    a = 100
+    b = 14
+    print(divmod(a, b))
+    ```
+
+    ```python
+    (7, 0)
+    (7, 2)
+    [7, 2]
+    None
+    ```
+
+    正确答案：B
+
+    ```python
+    函数 divmod(x, y) 返回元组 (x//y, x%y)。
+    ```
+
+    
