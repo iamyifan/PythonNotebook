@@ -920,4 +920,120 @@
     函数 divmod(x, y) 返回元组 (x//y, x%y)。
     ```
 
+35. 执行下列选项的程序，会抛出异常的是：
+
+    ```python
+    【A】
+    s1 = 'aabbcc'
+    s2 = 'abc'
+    count = s1.count(s2)
+    if count > 0 :
+        print('s2是s1的子串')
+    else:
+        print('s2不是s1的子串')
     
+    【B】
+    s1 = 'aabbcc'
+    s2 = 'abc'
+    index = s1.index(s2)
+    if index > -1:
+        print('s2是s1的子串')
+    else:
+        print('s2不是s1的子串')
+        
+    【C】
+    s1 = 'aabbcc'
+    s2 = 'abc'
+    find = s1.find(s2)
+    if find != -1 :
+        print('s2是s1的子串')
+    else:
+        print('s2不是s1的子串')
+        
+    【D】
+    s1 = 'aabbcc'
+    s2 = 'abc'
+    if s2 in s1:
+        print('s2是s1的子串')
+    else:
+        print('s2不是s1的子串')
+    ```
+
+    正确答案：B
+
+    ```python
+    str.count(sub[, start[, end]]) -> int：返回 str[start:end] 中不重叠的子串的数量，当不存在该子串时返回 0；
+    str.index(sub[, start[, end]]) -> int：返回 str[start:end] 中子串出现的最小下标，当不存在该字串时返回 ValueError；
+    str.find(sub[, start[, end]]) -> int：返回 str[start:end] 中子串出现的最小下标，当不存在该子串时返回 -1。
+    ```
+
+36. 在 Python3 中，关于程序运行结果说法正确的是：
+
+    ```python
+    dicts = {}
+    dicts[([1, 2])] = 'abc'
+    print(dicts)
+    ```
+
+    ```python
+    【A】{([1,2]): 'abc'}
+    【B】{[1,2]: 'abc'}
+    【C】报错
+    【D】其他说法都不正确
+    ```
+
+    正确答案：C
+
+    ```
+    字典中的 key 为不可变对象（可哈希对象）。
+    ```
+
+37. 运行下列四个选项的程序，不会抛出异常的是：
+
+    ```python
+    【A】
+    class Rect:
+        def __init__(self, width, height):
+            self.width = width
+            self.height = height
+        @property
+        def area(self):
+            return self.height * self.width
+    rect = Rect(10, 20)
+    rect.area()
+    
+    【B】
+    a = 0
+    def fun():
+        a += 1
+        print(a)
+    fun()
+    
+    【C】
+    class Animal:
+        def __init__(self, color="白色"):
+            Animal.color = color
+        def get_color(self):
+            print("Animal的颜色为", Animal.color)
+    class Cat(Animal):
+        def __init__(self):
+            pass
+    cat = Cat()
+    cat.get_color()
+    
+    【D】
+    class Cat:
+        def __init__(self, color="白色"):
+            self.__color = color
+    cat = Cat("绿色")
+    print(cat._Cat__color)
+    ```
+
+    正确答案：D
+
+    ```python
+    【A】装饰器 property 将方法转化为属性，本例中在调用属性时应改为 rect.area。
+    【B】在函数 fun 中，局部变量 a 隐藏了外部作用域中的同名变量，即全局变量 a。在函数声明变量时使用关键字 global，可实现对同名全局变量的修改。
+    【C】当子类定义了自己的构造函数 __init__ 时，将不会继承其父类的构造函数。在本例中，调用父类的函数 get_color 时，会出现找不到 Animal.color 的错误，可通过在子类构造函数中添加 super().__init__() 来修正。
+    【D】属性 self.__color 为类 Cat 的私有属性，在类外仍可通过“实例名.__类名__属性名”的方式来调用。
+    ```
