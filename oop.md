@@ -1,5 +1,7 @@
 # Python OOP
 
+[TOC]
+
 ## 1. 一切皆对象
 
 **面向对象编程（Object Oriented Programming, OOP）**由**面向过程编程（Procedure Oriented Programming, POP）**发展而来，具有更强的灵活性和拓展性。以下[表格](https://www.upgrad.com/blog/oop-vs-pop/)展示了 OOP 和 POP 的不同：
